@@ -26,6 +26,8 @@ class Projects(models.Model):
     
     def save_projects(self):
         self.save()
+    def delete_projects(self):
+        self.delete()
 
 
 
