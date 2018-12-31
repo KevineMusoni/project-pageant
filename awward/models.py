@@ -29,7 +29,20 @@ class Projects(models.Model):
     def delete_projects(self):
         self.delete()
 
+    @classmethod
+    def get_all(cls):
+        projects = cls.objects.all()
+        return projects
 
+    @classmethod
+    def get_project(cls, project_id):
+        project = cls.objects.get(id=project_id)
+        return project
+
+    @classmethod
+    def search_by_title(cls,search_term):
+        projects_title = cls.objects.filter(title__icontains=search_term)
+        return projects_title
 
 
 
