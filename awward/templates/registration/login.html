@@ -1,0 +1,26 @@
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<div>
+    <!-- <img src="../../static/img/image2.jpeg" class="image_header"> -->
+</div>
+<div class="login">
+    <h2 id="title"><b>InstaKev</b></h2>
+    <p class="sub-title">Sign up to see photos and<br> videos from your friends</p>
+    <form action="/accounts/login/" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form%}
+        <input type="hidden" name="next" value="/">
+        <div class="form-group" style="text-align: center">
+            <input type="submit" class="btn btn-primary btn-sm" value="Login">
+        </div>
+        <div class="invite" style="margin:0 0 5px 0;">
+            Dont have an account?
+            <a href="/accounts/register">Sign up</a>
+        </div>
+        <input type="hidden" name="next" value="{{next}}">
+    </form>
+</div>
+</div>
+{% endblock %}

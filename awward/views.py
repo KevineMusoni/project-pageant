@@ -121,9 +121,7 @@ def search_project(request,project_id):
 
     except ObjectDoesNotExist:
         raise Http404()
-        # return render(request, 'no_project.html')
-
-    return render(request, 'project-detail.html', {'project':project})
+    return render(request, 'project_details.html', {'project':project})
 
 class ProjectList(APIView):
     def get(self, request, format=None):
