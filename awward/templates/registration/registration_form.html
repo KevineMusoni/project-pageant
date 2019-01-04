@@ -1,25 +1,40 @@
 {%extends "registration/base.html"%}
-{% load bootstrap4 %}
-{% load static %}
+{% load bootstrap3 %}
 {% block content %}
-<div>
-    <!-- <img src="../../static/img/image2.jpeg" class="image_header"> -->
-</div>
-<div class="login">
-    <div class="invitation"></div>
-    <h2 id="title"><b>InstaKev</b></h2>
-    <form action="/accounts/register/" method="post">
-        {% csrf_token %}
-        {% bootstrap_form form%}
-        <div class="form-group" style="text-align: center">
-            <input type="submit" class="btn btn-primary btn-sm" value="Signup">
-            <div class="invite" style="margin:0 0 5px 0;">
-                Do you have an account?
-                <a href="/accounts/login">Login</a>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% if form.errors %}
+            <p>incorrect details</p>
+            {% endif %}
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    <h3 class="text-center">Sign Up</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form action="/accounts/register/" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+                        </div>
+
+                        <input type="hidden" name="next" value="{{next}}">
+
+                    </form>
+
+                </div>
+
             </div>
+
         </div>
-        <input type="hidden" name="next" value="{{next}}">
-    </form>
+
+        <div class="col-md-4"></div>
+    </div>
 </div>
-</div>
+
 {% endblock %}
