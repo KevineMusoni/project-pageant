@@ -5,7 +5,7 @@
 
 {% block content %}
 {{block.super}}
-<link rel="stylesheet" href="../static/css/profile.css">
+<link rel="stylesheet" type="text/css" href="../../static/css/base.css">
 
 <div class="container">
     <div class="row">
@@ -17,11 +17,6 @@
             <div class="col-md-4">
 
                 <img src="{{profile.photo.url}}" class="profile" alt="Project" class="img-responsive">
-                <style>
-                    img.profile {
-                        border-radius: 70%;
-                    }
-                </style>
 
                 <p> Bio: {{profile.bio}}</p>
             </div>
@@ -29,7 +24,6 @@
 
 
             <h1 class="profile-user-name">{{profile.profile}}</h1>
-            <h4>{{profile.contact}}</h4>
 
             <button class="btn profile-create-btn"><a href="/edit/profile">Edit profile</a> </button>
         </div>
@@ -40,13 +34,7 @@
         {% for project in projects %}
 
         <div class="col-md-4">
-            <img src="{{project.image.url}}" class="radius" alt="Project" class="img-responsive">
-            <style>
-                .radius {
-                    height: 250px;
-                    width: 250px;
-                }
-            </style>
+            <img src="{{project.image.url}}" class="img" alt="Project" class="img-responsive">
         </div>
         {% endfor%}
 

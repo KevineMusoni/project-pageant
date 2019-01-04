@@ -7,10 +7,9 @@ from django.contrib.auth.models import User
 
 # user profile class
 class Profile(models.Model):
+    profile = models.ForeignKey(User,on_delete=models.CASCADE, null = True)
     photo = models.ImageField(upload_to = 'profile/')
-    Profile = models.ForeignKey(User,on_delete=models.CASCADE, null = True)
     bio = models.TextField(max_length=500)
-
     def save_profile(self):
         self.save()
     def delete_profile(self):
