@@ -1,7 +1,7 @@
 from django import forms
-from .models import Profile, Projects
+from .models import Profile, Project
 
-class ProjectsForm(forms.ModelForm):
+class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         exclude = ['profile','functionality','userinterface']
@@ -10,7 +10,7 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         exclude = ['profile']
-   class VoteForm(forms.ModelForm):
+class VoteForm(forms.ModelForm):
     class Meta:
         model = Project
         exclude = ['link','description','profile','image','title']     

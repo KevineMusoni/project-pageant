@@ -17,23 +17,18 @@ def index(request):
     
 def project(request,project_id):
     project = Project.objects.get(id = project_id)
-    rating = round(((project.design + project.usability + project.content)/3),2)
+    rating = round(((project.userinterface + project.functionality )/2),2)
     if request.method == 'POST':
         form = VoteForm(request.POST)
         if form.is_valid:
-            if project.design == 1:
-                project.design = int(request.POST['design'])
+            if project.userinterface == 1:
+                project.userinterface = int(request.POST['userinterface'])
             else:
-                project.design = (project.design + int(request.POST['design']))/2
-            if project.usability == 1:
-                project.usability = int(request.POST['usability'])
+                project.userinterface = (project.userinterface + int(request.POST['userinterface']))/2
+            if project.functionality == 1:
+                project.functionality = int(request.POST['functionality'])
             else:
-                project.usability = (project.design + int(request.POST['usability']))/2
-            if project.content == 1:
-                project.content = int(request.POST['content'])
-            else:
-                project.content = (project.design + int(request.POST['content']))/2
-            project.save()
+                project.functionality = (project.userinterface + int(request.POST['functionality']))/2
     else:
         form = VoteForm()
     return render(request,'project.html',{'form':form,'project':project,'rating':rating})
@@ -55,23 +50,18 @@ def new_project(request):
 
 def vote_project(request, project_id):
     project = Project.objects.get(id=project_id)
-    rating = round(((project.design + project.usability + project.content)/3),2)
+    rating = round(((project.userinterface + project.functionality)/2),2)
     if request.method == 'POST':
         form = VoteForm(request.POST)
         if form.is_valid:
-            if project.design == 1:
-                project.design = int(request.POST['design'])
+            if project.userinterface == 1:
+                project.userinterface = int(request.POST['userinterface'])
             else:
-                project.design = (project.design + int(request.POST['design']))/2
-            if project.usability == 1:
-                project.usability = int(request.POST['usability'])
+                project.userinterface = (project.userinterface + int(request.POST['userinterface']))/2
+            if project.functionality == 1:
+                project.functionality = int(request.POST['functionality'])
             else:
-                project.usability = (project.design + int(request.POST['usability']))/2
-            if project.content == 1:
-                project.content = int(request.POST['content'])
-            else:
-                project.content = (project.design + int(request.POST['content']))/2
-            project.save()
+                project.functionality = (project.userinterface + int(request.POST['functionality']))/2
     else:
         form = VoteForm()
     return render(request,'vote.html',{'form':form,'project':project,'rating':rating})
