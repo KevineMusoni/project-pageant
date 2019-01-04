@@ -1,0 +1,44 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title> New Project</title>
+    {{form.media}}
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <form action="{% url 'new-project' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {% bootstrap_form form %}
+                    <input type="submit" class="btn btn-success btn-md" value="Add Project">
+
+                </form>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+
+    {% block script %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript%}
+    {% endblock %}
+
+</body>
+
+</html>

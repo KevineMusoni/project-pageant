@@ -1,0 +1,71 @@
+{%extends 'base.html'%}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">{{project.project}}</h1>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <img src="{{project.image.url}}" width="500px" height="500px" class="img-responsive" alt="">
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <div class="row">
+        {% autoescape on %}
+        {{image.post| safe}}
+        {% endautoescape %}
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6 text-center">
+
+            <b>
+                <p>{{project.description}}</p>
+                <p class="text-center"> <a href="{{project.link}}">{{project.link}}</a></p>
+                <button type="button" name="button"> <a href="/project-vote/{{project.id}}"> vote</a></button>
+            </b>
+        </div>
+        <div class="col-md-3">
+        </div>
+    </div>
+    <br><br>
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+        <hr>
+        <b>userinterface: {{project.userinterface}} functionality: {{project.functionality}}
+        <hr>
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+    <br><br>
+    <div class="progress">
+            userinterface: <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" aria-valuemax="10"
+            style="width:40%">
+            functionality: <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0"
+                aria-valuemax="10" style="width:40%">
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+        {% endblock %}
