@@ -12,15 +12,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% endblock%}
 </head>
-
 <body>
-
+<div class="nav-bar">
     <nav class="navbar">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <a class="navbar-brand" data-toggle="modal" data-target="#settings" aria-hidden="true"><i class="fa fa-bars"></i>edit details</a>
-                    
+                    <a class="navbar-brand" href="{% url 'indexPage' %}"> <span class="logo">Project~Pageant</span></a>
+                </div>
+                <div class="col-md-4" class="navbar navbar-right">
+                    {% if user.is_authenticated %}
+                    <span><h2><a id="nav-link" class="navbar-brand" href="{% url 'new-project' %}">Add a project</a></h2></span>
+                    <span><h2><a id="nav-link" class="navbar-brand" href="{% url 'Profile' %}">Profile</a></h2></span>
+                    <a id="nav-link" class="navbar-brand" href="/logout/">log out</a>
+                    {% else %}
+                    <li>
+                        <a class="navbar-brand" href="/accounts/login" style="color:black;">login</a>
+                    </li>
+                
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <h2><a id="nav-link" class="navbar-brand" data-toggle="modal" data-target="#settings" aria-hidden="true"><i class="fa fa-bars"></i>edit
+                        details</a></h2>
+                        <br>
+                        <br>
+                        <br>
                     <form class="navbar-form" role="search" action="{% url 'search_results' %}">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="search project" name="project">
@@ -31,22 +48,7 @@
                     
                     </form>
                 </div>
-                <div class="col-md-4">
-                    <a class="navbar-brand" href="{% url 'indexPage' %}" style="color:black;"> <b>project-pageant</b></a>
-                </div>
-                <div class="col-md-4" class="navbar navbar-right">
-                    {% if user.is_authenticated %}
-                        <a class="navbar-brand" href="{% url 'new-project' %}">add a project</a>
-                        <a class="navbar-brand" href="{% url 'Profile' %}">profile</a>
-                        <a class="navbar-brand" href="/accounts/register/"> register</a>
-                        <a class="navbar-brand" href="/logout/">log Out</a>
-                    {% else %}
-                    <li>
-                        <a class="navbar-brand" href="/accounts/login" style="color:black;">login</a>
-                    </li>
-
-                    {% endif %}
-                </div>
+              
 
             </div>
 
@@ -67,6 +69,8 @@
                 </div>
             </div>
         </div>
+    </div>
+        <h3 class="sub-title">"Post your project and get votes right away!"</h3>
     </div>
 </body>
 

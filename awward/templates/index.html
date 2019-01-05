@@ -5,15 +5,13 @@
 
 {% block content %}
 {{block.super}}
-<div class="container">
+<div id="content" class="container">
     <div class="row">
-        <!-- <img src=""> -->
         <div class="row">
             {% for post in projects %}
             <div class="col-md-4">
-                <h3 class="text-center"> {{post.title}}</h3>
-                <a href="{% url 'projects' post.id %}"><img src="{{post.image.url}}" class="img-responsive" alt="Project"></a>
-
+                <h3 id="post-title" class="text-center">{{post.title}}</h3>
+                <a class="img-post" href="{% url 'projects' post.id %}"><img src="{{post.image.url}}" class="img-responsive" alt="Project"></a>
             </div>
             {% endfor %}
         </div>
