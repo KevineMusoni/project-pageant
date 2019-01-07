@@ -5,6 +5,8 @@ Deployed Link:https://project-pageant.herokuapp.com/
 Github link :https://github.com/KevineMusoni/project-pageant.git
  ## Installing Dependencies
 pip3 install -r requirements.txt
+## Creating virtual environment
+python3.6 -m venv virtual
  ## Running the server
 ./start.sh
  ### User Stories
