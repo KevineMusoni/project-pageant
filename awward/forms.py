@@ -4,7 +4,7 @@ from .models import Profile, Project
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        exclude = ['profile','functionality','userinterface']
+        exclude = ['profile','functionality','userinterface','content']
 
 class ProfileForm(forms.ModelForm):
     class Meta:
