@@ -14,20 +14,11 @@ pip3 install -r requirements.txt
 * Search for projects 
 * View projects overall score
 * View my profile page
- ## Behavior Driven Development
-| input              | output         |
-|---------------     |--------------- |
-| login/signup       | view posts     |
-| user profile       | edit and update|
-| search user        | follow/unfollow, view posts|
-| logout             |  exit user from app|
  ## Technologies Used
 * Python3.6
 * Django
-* JavaScript
 * HTML
 * CSS
-* jQuery
 * Bootstrap
  ## Support and contact details
 {Run the web page once again incase of any errors,
