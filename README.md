@@ -1,5 +1,5 @@
 # project-pageant
-A web application that will allow users to showcase their projects and get them reviewed by their peers.
+A web application that will allow users to showcase their projects and get them votes by their peers.
  ## Setup/Installation Requirements 
 #### Deployed Link:https://project-pageant.herokuapp.com/ 
 #### Github link :https://github.com/KevineMusoni/project-pageant.git
