@@ -24,7 +24,8 @@ class Project(models.Model):
     profile = models.ForeignKey(User,on_delete=models.CASCADE, null=True)   
     userinterface=models.PositiveIntegerField(choices=list(zip(range(1,11),range(1, 11))), default=1)
     functionality = models.PositiveIntegerField(choices=list(zip(range(1, 11), range(1, 11))), default=1)
-    
+    content=models.PositiveIntegerField(choices=list(zip(range(1, 11), range(1, 11))), default=1)
+
     def save_project(self):
         self.save()
     def delete_project(self):

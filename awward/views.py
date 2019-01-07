@@ -29,6 +29,10 @@ def project(request,project_id):
                 project.functionality = int(request.POST['functionality'])
             else:
                 project.functionality = (project.userinterface + int(request.POST['functionality']))/2
+            if project.content == 1:
+                project.content = int(request.POST['content'])
+            else:
+                project.content = (project.design + int(request.POST['content']))/2
     else:
         form = VoteForm()
     return render(request,'project.html',{'form':form,'project':project,'rating':rating})
@@ -62,6 +66,11 @@ def vote_project(request, project_id):
                 project.functionality = int(request.POST['functionality'])
             else:
                 project.functionality = (project.userinterface + int(request.POST['functionality']))/2
+            if project.content == 1:
+                project.content = int(request.POST['content'])
+            else:
+                project.content = (project.design + int(request.POST['content']))/2
+            
     else:
         form = VoteForm()
     return render(request,'vote.html',{'form':form,'project':project,'rating':rating})
